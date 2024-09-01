@@ -23,7 +23,7 @@ app.set("view engine", "ejs");
 //EXEMPLO DE NOVA ROTA
 
 app.get('/frases', async (req, res, next) => {
-const frase = JSON.parse(fs.readFileSync(__dirname + '.frases.json'));
+const frase = JSON.parse(fs.readFileSync(__dirname + './frases.json'));
 const random = frase[Math.floor(Math.random() * frase.length)]; 
 res.json({
 frase: `${random}`
