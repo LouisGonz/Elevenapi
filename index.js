@@ -22,6 +22,17 @@ app.set("view engine", "ejs");
 
 //EXEMPLO DE NOVA ROTA
 
+app.get('/hentai', async (req, res, next) => {
+const pasta = JSON.parse(fs.readFileSync(__dirname + '/teste.json'));
+const random = pasta[Math.floor(Math.random() * pasta.length)];
+res.json({
+url: `${random}`
+})
+})
+
+app.get('/',(req, res) => {
+res.sendFile(path.join(__dirname, "./index.html"))})
+
 app.get('/frases', async (req, res, next) => {
 const frase = JSON.parse(fs.readFileSync(__dirname + '/frases.json'));
 const random = frase[Math.floor(Math.random() * frase.length)]; 
